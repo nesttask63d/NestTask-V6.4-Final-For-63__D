@@ -5,7 +5,7 @@ import type { Announcement } from '../types/announcement';
 const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 const TELEGRAM_API = TELEGRAM_BOT_TOKEN ? `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}` : '';
-const APP_DOMAIN = 'https://nesttask.vercel.app';
+const APP_DOMAIN = 'https://nesttask-63d.vercel.app/';
 
 /**
  * Sends a message to Telegram with optional photo attachment
@@ -29,7 +29,7 @@ export async function sendTelegramMessage(text: string, photo?: string) {
     if (photo) {
       const requestBody = {
         chat_id: TELEGRAM_CHAT_ID,
-       // message_thread_id: 204,  // Correct topic ID from the URL
+        message_thread_id: 2,  // Correct topic ID from the URL
         photo,
         caption: text,
         parse_mode: 'HTML',
@@ -53,7 +53,7 @@ export async function sendTelegramMessage(text: string, photo?: string) {
     } else {
       const requestBody = {
         chat_id: TELEGRAM_CHAT_ID,
-      //  message_thread_id: 204,  // Correct topic ID from the URL
+        message_thread_id: 2,  // Correct topic ID from the URL
         text,
         parse_mode: 'HTML',
         disable_web_page_preview: false,
